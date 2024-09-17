@@ -1,6 +1,8 @@
 import type { NextRequest } from 'next/server';
 import { ImageResponse } from 'next/og';
 
+export const runtime = 'edge';
+
 export async function GET(request: NextRequest) {
     const name = request.nextUrl.searchParams.get('name') || 'World';
     
