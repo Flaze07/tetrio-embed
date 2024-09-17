@@ -1,6 +1,8 @@
 import type { NextRequest } from "next/server";
 import { ImageResponse } from "next/og";
 
+export const runtime = 'edge';
+
 export default async function GET(req: NextRequest, { params }: { params: { name: string } }) {
     const { name } = params;
 
