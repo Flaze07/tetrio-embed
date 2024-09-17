@@ -1,4 +1,5 @@
 import type { Metadata, ResolvingMetadata } from "next";
+import { ImageResponse } from "next/og";
 
 export const runtime = 'edge'
 
@@ -26,12 +27,31 @@ export async function generateMetadata( { searchParams }: Props, parent: Resolvi
         }
     }
 
+    const generatedImage = new ImageResponse(
+        (
+            // ImageResponse JSX element
+            <div
+            style={{
+                fontSize: 128,
+                background: 'white',
+                width: '100%',
+                height: '100%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+            }}
+            >
+            This is a test
+            </div>
+        )
+    )
+
     return {
         title: `${name}`,
         description: `Data user ${name}`,
         openGraph: {
             images: [
-                `https://tetr.io/user-content/avatars/${data.data._id}.jpg?rv=${data.data.avatar_revision}`
+                generatedImage
             ]
         }
     }
