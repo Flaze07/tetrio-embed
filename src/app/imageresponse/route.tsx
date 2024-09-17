@@ -8,10 +8,24 @@ export async function GET(request: NextRequest) {
     
     return new ImageResponse(
         (
-            <div>
+            <div
+                style={{
+                    fontSize: 128,
+                    background: 'white',
+                    width: '100%',
+                    height: '100%',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                }}
+            >
                 <h1>Hello {name}</h1>
             </div>
-        )
+        ),
+        {
+            width: 1200,
+            height: 600
+        }
     )
 }
 
