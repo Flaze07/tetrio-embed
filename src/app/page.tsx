@@ -4,14 +4,11 @@ type Props = {
     searchParams: { [key: string]: string | string[] | undefined }
 }
 
-export const metadata: Metadata = {
-    title: 'Page',
-};
-
 export async function generateMetadata( { searchParams }: Props, parent: ResolvingMetadata ): Promise<Metadata> {
     const id = searchParams.id;
 
     return {
+        title: "title",
         description: `Page ${id}`,
     }
 };
