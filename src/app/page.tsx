@@ -1,5 +1,7 @@
 import type { Metadata, ResolvingMetadata } from "next";
 
+export const runtime = 'edge'
+
 type Props = {
     searchParams: { [key: string]: string | string[] | undefined }
 }
