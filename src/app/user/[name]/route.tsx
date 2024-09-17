@@ -122,7 +122,7 @@ export async function GET(req: NextRequest, { params }: { params: { name: string
                     >
                         <p
                             style={{
-                                fontSize: 76,
+                                fontSize: 100,
                                 fontWeight: 'bold',
                             }}
                         >
@@ -131,9 +131,9 @@ export async function GET(req: NextRequest, { params }: { params: { name: string
                         <img 
                             src={`https://tetr.io/res/league-ranks/${userSummaryData.data.league.rank}.png`} 
                             style={{
-                                width: '100px',
-                                marginTop: '50px',
-                                marginLeft: '20px'
+                                width: '150px',
+                                marginTop: '40px',
+                                marginLeft: '40px'
                             }}
                         />
                     </span>
