@@ -1,8 +1,19 @@
-import type { Metadata } from "next";
+import type { Metadata, ResolvingMetadata } from "next";
+
+type Props = {
+    searchParams: { [key: string]: string | string[] | undefined }
+}
 
 export const metadata: Metadata = {
     title: 'Page',
-    description: 'This is a page',
+};
+
+export async function generateMetadata( { searchParams }: Props, parent: ResolvingMetadata ): Promise<Metadata> {
+    const id = searchParams.id;
+
+    return {
+        description: `Page ${id}`,
+    }
 };
 
 export default function Page() {
