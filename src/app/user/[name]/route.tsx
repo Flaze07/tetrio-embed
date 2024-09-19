@@ -1,34 +1,8 @@
 import type { NextRequest } from "next/server";
-import { Inter } from 'next/font/google';
 import { ImageResponse } from "next/og";
 import bg from '@/app/resource/background.png';
 
 export const runtime = 'edge';
-const inter = Inter({ subsets: ['latin'] })
-
-// const errorImage = new ImageResponse(
-//     (
-//         <div
-//                 style={{
-//                     // fontFamily: ''
-//                     fontSize: 128,
-//                     background: 'white',
-//                     width: '100%',
-//                     height: '100%',
-//                     display: 'flex',
-//                     flexDirection: 'row',
-//                     alignItems: 'center',
-//                     paddingLeft: '100px',
-//                     backgroundColor: '#363636',
-//                     color: 'lightgray',
-//                 }}
-//             >
-//                 <span>
-//                     Error Happened, don't know why
-//                 </span>
-//             </div>
-//     )
-// );
 
 function convertMilliseconds(ms: number): string {
     const minutes = Math.floor(ms / 60000); // 1 minute = 60,000 milliseconds
