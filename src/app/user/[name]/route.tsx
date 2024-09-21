@@ -394,7 +394,8 @@ export async function GET(req: NextRequest, { params }: { params: { name: string
                                     key={badge.id}
                                     src={`https://tetr.io/res/badges/${badge.id}.png`}
                                     style={{
-                                        height: 64
+                                        height: 64,
+                                        filter: 'drop-shadow(5px 5px 2px #222)'
                                     }}
                                 />
                             )
