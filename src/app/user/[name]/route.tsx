@@ -391,6 +391,7 @@ export async function GET(req: NextRequest, { params }: { params: { name: string
                         badges.map((badge: BadgesType) => {
                             return (
                                 <img 
+                                    key={badge.id}
                                     src={`https://tetr.io/res/badges/${badge.id}.png`}
                                     style={{
                                         height: 64
