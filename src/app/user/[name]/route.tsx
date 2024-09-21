@@ -4,6 +4,12 @@ import bg from '@/app/resource/background.png';
 
 export const runtime = 'edge';
 
+interface BadgesType {
+    id: string;
+    label: string;
+    ts: string;
+}
+
 function convertMilliseconds(ms: number): string {
     const minutes = Math.floor(ms / 60000); // 1 minute = 60,000 milliseconds
     const seconds = Math.floor((ms % 60000) / 1000); // Remainder after minutes conversion
@@ -112,6 +118,9 @@ export async function GET(req: NextRequest, { params }: { params: { name: string
     const rankLeague: string = userSummaryData.data.league === null ? 'N/A': userSummaryData.data.league.standing;
     const rankIconLeague: string = userSummaryData.data.league === null ? 'N/A': userSummaryData.data.league.rank;
 
+    //badges
+    const badges: [BadgesType] = data.data.badges;
+
     return new ImageResponse(
         (
             <div
@@ -130,6 +139,7 @@ export async function GET(req: NextRequest, { params }: { params: { name: string
                     boxShadow: "inset 0px 0px 8.5px 21px rgba(0, 0, 0, 0.25)",
                     paddingTop: "47px",
                     paddingLeft: '37px',
+                    paddingBottom: '37px',
                     // paddingRight: '300px',
                 }}
             >
@@ -359,6 +369,36 @@ export async function GET(req: NextRequest, { params }: { params: { name: string
                             </span>
                         </span>
                     </span>
+                </span>
+                <span
+                    style={{
+                        display: 'flex',
+                        flex: 1,
+                        marginRight: '55px',
+                        marginTop: '22px',
+                        flexDirection: 'row',
+                        flexWrap: 'wrap',
+                        gap: '10px',
+                        boxShadow: '5px 6px 4px rgba(0, 0, 0, 0.25)',
+                        border: '4px solid #000000',
+                        backgroundColor: '#CDC1FF',
+                        borderRadius: '20px',
+                        paddingLeft: '20px',
+                        paddingTop: '10px'
+                    }}
+                >
+                    {
+                        badges.map((badge: BadgesType) => {
+                            return (
+                                <img 
+                                    src={`https://tetr.io/res/badges/${badge.id}.png`}
+                                    style={{
+                                        height: 64
+                                    }}
+                                />
+                            )
+                        })
+                    }
                 </span>
             </div>
         ),
